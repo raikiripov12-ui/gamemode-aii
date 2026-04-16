@@ -1,4 +1,4 @@
-package com.example.gamemode
+package com.debk007.template
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
