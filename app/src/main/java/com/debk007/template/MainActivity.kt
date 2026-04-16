@@ -12,7 +12,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface {
-                    Text("GameMode AI - Running OK")
+                    Text("GameMode AI - OK")
                 }
             }
         }
