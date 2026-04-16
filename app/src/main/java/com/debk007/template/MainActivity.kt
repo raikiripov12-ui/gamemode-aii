@@ -1,28 +1,35 @@
-package com.debk007.template
+package com.example.gamemode
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
-import com.debk007.template.presentation.App
-import com.debk007.template.presentation.ui.theme.KotlinAndroidTemplateTheme
-import dagger.hilt.android.AndroidEntryPoint
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.*
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
-            KotlinAndroidTemplateTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    App()
-                }
+            SimpleDashboard()
+        }
+    }
+}
+
+@Composable
+fun SimpleDashboard() {
+    var enabled by remember { mutableStateOf(false) }
+
+    MaterialTheme {
+        Column(
+            modifier = androidx.compose.ui.Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(text = if (enabled) "Game Mode ON" else "Game Mode OFF")
+
+            Button(onClick = { enabled = !enabled }) {
+                Text("Toggle Game Mode")
             }
         }
     }
